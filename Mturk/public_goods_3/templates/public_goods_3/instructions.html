@@ -1,0 +1,87 @@
+{% load otree %}
+
+
+    <div class="card-body">
+
+        <p>At the end of the experiment, the computer will randomly create groups of {{ Constants.players }}. Your bonus in this part will depend on your decision as well as the decision of the other group members. </p>
+
+        <p>You and the <span id="otherr"> </span> other players in your group will <strong>each be given ${{ Constants.initial }} and <span id="ball"> </span> {{ Constants.color1 }} balls.</strong> Each of you needs to decide how he/she wishes to allocate the <span id="balll"> </span> {{ Constants.color1 }} balls between two urns, urn A and urn B. </p>
+
+        <p>Each ball that you place in <strong>urn A</strong> costs you $<span id="multipleA"> </span>. </p>
+
+        <p>Each ball placed in the <strong>urn B</strong> by you or any other player in your group costs $<span id="multipleB"> </span> to every player in the group (you and the <span id="otherrrrrrr"> </span> others). In other words, each ball in urn B costs $<span id="multipleBp"> </span> to every player in the group.  </p>
+
+        <p>The total gain for each player is equal to his/her initial endowment of ${{ Constants.initial }} minus the number of {{ Constants.color1 }} balls that he/she places in urn A times $<span id="multipleA2"> </span> minus the total number of {{ Constants.color1 }} balls in urn B placed by everyone in the group times $<span id="multipleB2"> </span>. </p>
+
+        <p> <strong> Example: </strong> You place <span id="Bp"> </span> {{ Constants.color1 }} balls in urn B and the <span id="otherrrr"> </span> other players in your group place <span id="Bo"> </span> {{ Constants.color1 }} balls in total in urn B. Therefore, urn B contains <span id="Bt"> </span> {{ Constants.color1 }} balls. Urn B costs you and the <span id="otherrrrr"> </span> other players (<span id="Btt"> </span> x $<span id="multipleB3"> </span>)/{{ Constants.players }} = $<span id="gain1"> </span>, while urn A costs you <span id="A"> </span> x $<span id="multipleA3"> </span> = $<span id="gain2"> </span>. The total cost to you is therefore $<span id="gain11"> </span> (urn B) + $<span id="gain22"> </span> (urn A) = $<span id="gain0"> </span>. Your gain is equal to ${{ Constants.initial }} (initial endowment) - $<span id="gain00"> </span> = $<span id="gain3"> </span>. </p>
+
+        <p>You will need to indicate <strong> how many {{ Constants.color1 }} balls you want to place in urn B then press Next </strong> to validate your choice.  </p>
+
+    </div>
+
+
+<script type="text/javascript">
+    var myVar = setInterval(function(){f1()}, 1000);
+    var myVar = setInterval(function(){f2()}, 1000);
+    var myVar = setInterval(function(){f3()}, 1000);
+    var myVar = setInterval(function(){f4()}, 1000);
+    var myVar = setInterval(function(){f5()}, 1000);
+    var myVar = setInterval(function(){f6()}, 1000);
+
+        function f1() {
+        other = {{ Constants.players }} - 1;
+        document.getElementById("otherr").innerHTML = other;
+        document.getElementById("otherrr").innerHTML = other;
+        document.getElementById("otherrrr").innerHTML = other;
+        document.getElementById("otherrrrr").innerHTML = other;
+        document.getElementById("otherrrrrr").innerHTML = other;
+        document.getElementById("otherrrrrrr").innerHTML = other;
+        };
+        function f2() {
+        multipleA = -1*{{ Constants.multiplier_A }};
+        document.getElementById("multipleA").innerHTML = multipleA;
+        document.getElementById("multipleA2").innerHTML = multipleA;
+        document.getElementById("multipleA3").innerHTML = multipleA;
+        };
+        function f3() {
+        multipleB = -1*{{ Constants.multiplier_B }};
+        document.getElementById("multipleB").innerHTML = multipleB;
+        document.getElementById("multipleB2").innerHTML = multipleB;
+        document.getElementById("multipleB3").innerHTML = multipleB;
+        };
+        function f4() {
+        ball = {{ Constants.endowment|json }};
+        document.getElementById("ball").innerHTML = ball;
+        document.getElementById("balll").innerHTML = ball;
+        };
+        function f5() {
+        multipleBp = (-1*{{ Constants.multiplier_B }})/{{ Constants.players }};
+        document.getElementById("multipleBp").innerHTML = multipleBp;
+        };
+        function f6() {
+        Bp = 22;
+        Bo = 58;
+        Bt = Bp+Bo;
+        A = {{ Constants.endowment|json }} - Bp;
+        gain1 = (Bt/{{ Constants.players }})/(-1/{{ Constants.multiplier_B }});
+        gain2 = -(A/(1/{{ Constants.multiplier_A }}));
+        gain0 = gain1 + gain2;
+        gain0=Math.round(gain0*100);
+        gain0 = gain0/100
+        gain3 = {{ Constants.initial }} - gain0;
+        document.getElementById("Bp").innerHTML = Bp;
+        document.getElementById("Bo").innerHTML = Bo;
+        document.getElementById("Bt").innerHTML = Bt;
+        document.getElementById("Btt").innerHTML = Bt;
+        document.getElementById("A").innerHTML = A;
+        document.getElementById("gain0").innerHTML = gain0;
+        document.getElementById("gain00").innerHTML = gain0;
+        document.getElementById("gain1").innerHTML = gain1;
+        document.getElementById("gain11").innerHTML = gain1;
+        document.getElementById("gain2").innerHTML = gain2;
+        document.getElementById("gain22").innerHTML = gain2;
+        document.getElementById("gain3").innerHTML = gain3;
+        };
+
+    window.onload = function(){f1();f2();f3();f4();f5();f6;};
+</script>

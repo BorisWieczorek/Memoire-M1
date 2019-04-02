@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Decision
+{% endblock %}
+
+{% block content %}
+<p>Each ball placed in the urn A is worth $<span id="multipleA"> </span> to you. Each ball placed in the urn B by you or any other player in the group is worth $<span id="multipleB"> </span> for your group and the total value is divided equally among the four group members. You need to indicate how many {{ Constants.color1 }} balls you want to place in urn B then press <strong>Next</strong> to validate your choice.</p>
+
+
+    {% include Constants.interface_contribute_template %}
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script type="text/javascript">
+    var myVar = setInterval(function(){f11()}, 1000);
+    var myVar = setInterval(function(){f12()}, 1000);
+    var myVar = setInterval(function(){f13()}, 1000);
+
+        function f11() {
+        multipleA = 1*{{ Constants.multiplier_A }};
+        document.getElementById("multipleA").innerHTML = multipleA;
+        };
+        function f12() {
+        multipleB = 1*{{ Constants.multiplier_B }};
+        document.getElementById("multipleB").innerHTML = multipleB;
+        };
+
+    window.onload = function(){f11();f12();f13();};
+
+</script>
+
+{% endblock %}

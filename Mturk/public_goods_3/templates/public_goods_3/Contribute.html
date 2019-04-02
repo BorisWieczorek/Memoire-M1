@@ -1,0 +1,46 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Decision
+{% endblock %}
+
+{% block content %}
+<p>Each ball that you place in urn A costs you $<span id="multipleA"> </span>. Each ball placed in the urn B by you or any other player in your group costs $<span id="multipleB"> </span> to every player in the group (you and the three others). In other words, each token in urn B costs $<span id="multipleBp"> </span> to every player in the group. You need to indicate how many {{ Constants.color1 }} balls you want to place in urn B then press <strong>Next</strong> to validate your choice. </p>
+
+
+
+    {% include Constants.interface_contribute_template %}
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+    var myVar = setInterval(function(){f11()}, 1000);
+    var myVar = setInterval(function(){f12()}, 1000);
+    var myVar = setInterval(function(){f13()}, 1000);
+    var myVar = setInterval(function(){f14()}, 1000);
+
+        function f11() {
+        multipleA = -1*{{ Constants.multiplier_A }};
+        document.getElementById("multipleA").innerHTML = multipleA;
+        };
+        function f12() {
+        multipleB = -1*{{ Constants.multiplier_B }};
+        document.getElementById("multipleB").innerHTML = multipleB;
+        };
+        function f13() {
+        multipleBp = (-1*{{ Constants.multiplier_B }})/{{ Constants.players }};
+        document.getElementById("multipleBp").innerHTML = multipleBp;
+        };
+        function f14() {
+        ball = 1*{{ Constants.endowment|json }};
+        document.getElementById("ball").innerHTML = ball;
+        };
+
+    window.onload = function(){f11();f12();f13();f14();};
+</script>
+
+{%endblock %}

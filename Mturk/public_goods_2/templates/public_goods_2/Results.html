@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+  
+
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+        <tr><td>You placed in urn B:</td><td> <span id="contribution"> </span> {{ Constants.color1 }} balls </td></tr>
+        <tr><td>The other players in your group placed in urn B in total:</td><td><span id="autre_contribution"> </span> {{ Constants.color1 }} balls </td></tr>
+
+
+        <tr><td>Urn B contains in total:</td><td> <span id="B"> </span> {{ Constants.color1 }} balls </td></tr>
+
+        <tr><td colspan="2"><hr/></td></tr>
+
+        <tr><td>Your gain from urn A:</td><td> ${{ player.urnA|json }} </td></tr>
+        <tr><td>Your gain from urn B:</td><td>  ${{ group.urnB|json }} </td></tr>
+        <tr><td>Your initial gain:</td><td>  ${{ Constants.initial }} </td></tr>
+
+
+        <tr><td>Your total gain:</td><td>${{ player.payoff|json }} </td></tr>
+
+    </table>
+    <p></p>
+
+    {% next_button %}
+
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript">
+    var myVar = setInterval(function(){f1()}, 1000);
+    var myVar = setInterval(function(){f2()}, 1000);
+    var myVar = setInterval(function(){f3()}, 1000);
+
+    function f1() {
+        var t = {{ group.total_contribution|json }} - {{ player.contribution|json }} ;
+        document.getElementById("autre_contribution").innerHTML = t;
+    };
+    function f2() {
+        var tt = {{ player.contribution|json }} ;
+        document.getElementById("contribution").innerHTML = tt;
+    };
+    function f3() {
+    var ttt =  {{ group.total_contribution|json }} ;
+        document.getElementById("B").innerHTML = ttt;
+    };
+
+    window.onload = function(){f1();f2();f3();};
+</script>
+
+
+{% endblock %}

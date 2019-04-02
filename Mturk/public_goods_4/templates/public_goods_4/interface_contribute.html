@@ -1,0 +1,66 @@
+
+{% load otree %}
+
+{% block content %}
+
+{% formfield player.contribution label="How many <span id=\"color\"> </span> balls out of  <span id=\"balll\"> </span> do you place in urn B ?" %}
+
+    <div class="urnA">
+        <center> <strong> <font color="black"> <p> <br/> <br/> <br/> <br/> <br/> You place <span id="id_urne1_content"> </span> {{ Constants.color1 }} balls <br/> in Urn A </p> </font> </strong> </center>
+    </div>
+
+    <div class="urnB">
+        <center> <strong> <font color="black"> <p> <br/> <br/> <br/> <br/> <br/> &nbsp; &nbsp; &nbsp; &nbsp; You place <span id="id_urne2_content"> </span> <span id="id_urne2_spe"> </span> {{ Constants.color1 }} balls <br/> &nbsp; &nbsp; &nbsp; &nbsp; in Urn B </p> </font> </strong> </center>
+    </div>
+
+
+    {% next_button %}
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    var myVar = setInterval(function(){f1()}, 1000);
+    var myVar = setInterval(function(){f2()}, 1000);
+    var myVar = setInterval(function(){f3()}, 1000);
+    var myVar = setInterval(function(){f4()}, 1000);
+    var myVar = setInterval(function(){f5()}, 1000);
+    var myVar = setInterval(function(){f6()}, 1000);
+
+    function f1() {
+        var t = {{   Constants.endowment|json }} - document.getElementById("id_contribution").value;
+        if (document.getElementById("id_contribution").value == "") {s = "--";} else{s = {{ Constants.endowment|json }} - document.getElementById("id_contribution").value;};
+        document.getElementById("id_urne1_content").innerHTML = s;
+    };
+    function f2() {
+        var tt =  document.getElementById("id_contribution").value ;
+        if (tt == "") {p = "--";} else{p = " "};
+        document.getElementById("id_urne2_content").innerHTML = tt;
+        document.getElementById("id_urne2_spe").innerHTML = p;
+    };
+    function f3() {
+        var ttt =  document.getElementById("id_contribution").value;
+        if (ttt == "0") {w = "50";} else {w = " ";};
+        document.getElementById("id_urne1_spe").innerHTML = w;
+    };
+    function f4() {
+        var tttt =  {{ Constants.red }} - {{ Constants.endowment|json }};
+        document.getElementById("id_urne2_red").innerHTML = tttt;
+    };
+    function f5() {
+        var ttttt = {{ Constants.endowment|json }} - document.getElementById("id_contribution").value;
+        document.getElementById("id_urne2_content2").innerHTML = ttttt;
+    };
+    function f6() {
+        ball = {{ Constants.endowment|json }}*1;
+        document.getElementById("balll").innerHTML = ball;
+        color = "{{ Constants.color1 }}";
+        document.getElementById("color").innerHTML = color;
+
+    };
+
+    window.onload = function(){f1();f2();f3();f4();f5();f6();};
+</script>
+
+
+{% endblock %}
+
