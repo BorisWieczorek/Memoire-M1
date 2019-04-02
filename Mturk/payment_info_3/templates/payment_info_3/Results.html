@@ -1,0 +1,76 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+<p> For the part 1  :</p>
+
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+        <tr><td>You placed in urn B:</td><td> {{ Contribution1 }} {{ Color1 }} balls </td></tr>
+        <tr><td>The other players in your group placed in urn B in total: </td><td> {{ Autre_contribution1 }} {{ Color1 }} balls </td></tr>
+
+
+        <tr><td>Urn B contains in total:</td><td> <span id="B"> </span> {{ Total_contribution1 }} balls </td></tr>
+
+        <tr><td colspan="2"><hr/></td></tr>
+
+        <tr><td>Your lost from urn A:</td><td> ${{ UrnA1|json }} </td></tr>
+        <tr><td>Your lost from urn B:</td><td>  ${{ UrnB1 }} </td></tr>
+        <tr><td>Your initial gain:</td><td>  ${{ Initial1 }} </td></tr>
+
+        <tr><td>Your total gain:</td><td>${{ Total1|json }} </td></tr>
+
+    </table>
+    <p><br/><br/><br/></p>
+
+<p> For the part 2  :</p>
+
+
+
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+        <tr><td>You placed in urn B:</td><td> {{ Contribution2 }} {{ Color1 }} balls </td></tr>
+        <tr><td>The other players in your group placed in urn B in total:</td><td> {{ Autre_contribution2 }} {{ Color1 }} balls </td></tr>
+
+
+        <tr><td>Urn B contains in total: </td><td>{{ Total_contribution2 }} {{ Color1 }} balls </td></tr>
+
+        <tr><td colspan="2"><hr/></td></tr>
+
+        <tr><td>Your lost from urn A:</td><td> ${{ UrnA2|json }} </td></tr>
+        <tr><td>Your lost from urn B:</td><td>  ${{ UrnB2 }} </td></tr>
+        <tr><td>Your initial gain:</td><td>  ${{ Initial2 }} </td></tr>
+
+
+        <tr><td>Your total gain:</td><td>${{ Total2|json }} </td></tr>
+
+    </table>
+    <p><br/><br/><br/></p>
+
+
+
+
+
+<p> For the part 3  :</p>
+
+    <p>
+        The row randomly selected: <br>
+        option A: 10 ECU ({{ Proba_1 }} %) and 8 ECU ({{ Proba_2 }}%)
+        &nbsp; &nbsp; &nbsp; OR &nbsp; &nbsp; &nbsp;
+        option B: 19.25 ECU ({{ Proba_1 }}%) and 0.5 ECU ({{ Proba_2 }}%)<br>
+        Your choice: {{ Choix_player_ligne }}<br>
+        Your earn: ${{ Realisation_Holt_Laury }}
+    </p>
+
+    <p><br/><br/><br/></p>
+
+<p> The computer randomly selects the Part {{ player.alea }}, your earn ${{ player.gain|json }} </p>
+
+
+
+    {% next_button %}
+
+{% endblock %}
