@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        The row randomly selected: <br>
+        option A: 10 ECU ({{ proba_1 }} %) and 8 ECU ({{ proba_2 }}%)
+        &nbsp; &nbsp; &nbsp; OR &nbsp; &nbsp; &nbsp;
+        option B: 19.25 ECU ({{ proba_1 }}%) and 0.5 ECU ({{ proba_2 }}%)<br>
+        Your choice: {{ choix_player_ligne }}<br>
+        Your earn: {{ realisation_Holt_Laury }}
+    </p>
+
+    <div>
+        <button name="offer_accepted" value="Next" class="btn btn-primary btn-large">Next</button>
+    </div>
+{% endblock %}

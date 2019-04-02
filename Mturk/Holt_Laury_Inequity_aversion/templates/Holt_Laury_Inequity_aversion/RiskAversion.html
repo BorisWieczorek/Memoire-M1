@@ -1,0 +1,80 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Part 3
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+    <p> In this task, you need to choose between two options, option A and option B. For each row, you need to choose whether you prefer to take the option A or the option B. For example, in the first row, option A gives you $2 with a probability of 10% and $1.60 with a probability of 90%, while choosing option B would give you $3.85  with a probability of 10% and $0.10 with a probability of 90%. </p>
+
+    <p>For each row, the probabilities are different. At the end, the computer will randomly select one row and your gain in this part will correspond to the choice you’ve made in that row. </p>
+
+<div class="form-group required">
+    <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+        <tr>
+            <th colspan = 6 class="text-center"> Make your decision </th>
+        </tr>
+        <tr>
+            <th class="text-center">Option A</th><th class="text-center"> Decision </th><th class="text-center">Option B</th>
+        </tr>
+        <tr>
+            <td> $2 (10%) and $1.60 (90%)</td>
+            <td>{% formfield player.response_10 %}</td>
+            <td> $3.85 (10%) and $0.10 (90%)</td>
+        </tr>
+        <tr>
+            <td> $2 (20%) and $1.60 (80%)</td>
+            <td>{% formfield player.response_20 %}</td>
+            <td> $3.85 (20%) and $0.10 (80%)</td>
+        </tr>
+        <tr>
+            <td> $2 (30%) and $1.60 (70%)</td>
+            <td>{% formfield player.response_30 %}</td>
+            <td> $3.85 (30%) and $0.10 (70%)</td>
+        </tr>
+        <tr>
+            <td> $2 (40%) and $1.60 (60%)</td>
+            <td>{% formfield player.response_40 %}</td>
+            <td> $3.85 (40%) and $0.10 (60%)</td>
+        </tr>
+        <tr>
+            <td> $2 (50%) and $1.60 (50%)</td>
+            <td>{% formfield player.response_50 %}</td>
+            <td> $3.85 (50%) and $0.10 (50%)</td>
+        </tr>
+        <tr>
+            <td> $2 (60%) and $1.60 (40%)</td>
+            <td>{% formfield player.response_60 %}</td>
+            <td> $3.85 (60%) and $0.10 (40%)</td>
+        </tr>
+        <tr>
+            <td> $2 (70%) and $1.60 (30%)</td>
+            <td>{% formfield player.response_70 %}</td>
+            <td> $3.85 (70%) and $0.10 (30%)</td>
+        </tr>
+        <tr>
+            <td> $2  (80%) and $1.60 (20%)</td>
+            <td>{% formfield player.response_80 %}</td>
+            <td> $3.85 (80%) and $0.10 (20%)</td>
+        </tr>
+        <tr>
+            <td> $2 (90%) and $1.60 (10%)</td>
+            <td>{% formfield player.response_90 %}</td>
+            <td> $3.85 (90%) and $0.10 (10%)</td>
+        </tr>
+        <tr>
+            <td> $2 (100%) and $1.60 (0%)</td>
+            <td>{% formfield player.response_100 %}</td>
+            <td> $3.85 (100%) and $0.10 (0%)</td>
+        </tr>
+    </table>
+
+</div>
+
+    <div>
+        <button class="btn btn-primary btn-large">Next</button>
+    </div>
+{% endblock %}

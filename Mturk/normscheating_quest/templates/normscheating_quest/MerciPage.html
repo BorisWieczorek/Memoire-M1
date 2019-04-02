@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+{% endblock %}
+
+
+{% block content %}
+    <p>
+        You have earned with this experiment: {{ total_earnings }} <br>
+        This experiment is now finished, thanks for your participation.
+    </p>
+    <p>
+        {% next_button %}
+    </p>
+{% endblock %}

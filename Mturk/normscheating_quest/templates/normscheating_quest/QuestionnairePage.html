@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Questionnaire
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% formfield player.gender %}
+        {% formfield player.highest_level %}
+        {% formfield player.age %}
+        {% formfield player.risk_willingness %}
+        {% formfield player.mturk_worker_id with label="So that individual payments can be made, please enter your Amazon Mechanical Turk Worker ID. (This number can be found on your worker Dashboard.)<br>Type carefully. If your Worker ID is entered incorrectly, additional earnings may not be received.<br>Worker ID:" %}
+        {% formfield player.comments %}
+    </p>
+    <p>
+        {% next_button %}
+    </p>
+
+{% endblock %}
