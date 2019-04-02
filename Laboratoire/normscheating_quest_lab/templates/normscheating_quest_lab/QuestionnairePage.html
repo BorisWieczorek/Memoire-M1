@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Questionnaire
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% formfield player.gender %}
+        {% formfield player.highest_level %}
+        {% formfield player.age %}
+        {% formfield player.risk_willingness with label="Sur l'échelle suivante, merci indiquez, en général, votre disposition à prendre des risque. <br/> 1: Je ne prends aucun risque.  <br/> 10: Je n'ai aucun problème avec les décisions risquées." %}
+        {% formfield player.comments %}
+    </p>
+
+     <button class="btn btn-primary btn-large">
+        Suivant
+    </button>
+
+{% endblock %}

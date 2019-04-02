@@ -1,0 +1,78 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Partie 2
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+    <p> Dans cette partie vous devez choisir entre deux options, l'option A et l'option B. Pour chaque ligne, vous devez indiquer si vous préférez l'option A ou l'option B. Par exemple, dans la première ligne, choisir l'option A vous rapporte soit 8.5€ avec une probabilité de 10%, soit 6.8€ avec une probabilité de 90%, alors que choisir l'option B vous rapporte soit 16€ avec une probabilité de 10%, soit 0.5€ avec une probabilité de 90%. </p>
+
+    <p> Pour chaque ligne, les probabilités sont différentes. A la fin du jeu, l'ordinateur choisi aléatoirement l'une des lignes donnant votre gain pour cette partie, si elle est choisi pour le paiement. </p>
+
+<div class="form-group required">
+    <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+        <tr>
+            <th class="text-center">Option A</th><th class="text-center"> Votre décision </th><th class="text-center">Option B</th>
+        </tr>
+        <tr>
+            <td> 8.5€ (10%) et 6.8€ (90%)</td>
+            <td>{% formfield player.response_10 %}</td>
+            <td> 16€ (10%) et 0.5€ (90%)</td>
+        </tr>
+        <tr>
+            <td> 8.5€ (20%) et 6.8€ (80%)</td>
+            <td>{% formfield player.response_20 %}</td>
+            <td> 16€ (20%) et 0.5€ (80%)</td>
+        </tr>
+        <tr>
+            <td> 8.5€ (30%) et 6.8€ (70%)</td>
+            <td>{% formfield player.response_30 %}</td>
+            <td> 16€ (30%) et 0.5€ (70%)</td>
+        </tr>
+        <tr>
+            <td> 8.5€ (40%) et 6.8€ (60%)</td>
+            <td>{% formfield player.response_40 %}</td>
+            <td> 16€ (40%) et 0.5€ (60%)</td>
+        </tr>
+        <tr>
+            <td> 8.5€ (50%) et 6.8€ (50%)</td>
+            <td>{% formfield player.response_50 %}</td>
+            <td> 16€ (50%) et 0.5€ (50%)</td>
+        </tr>
+        <tr>
+            <td> 8.5€ (60%) et 6.8€ (40%)</td>
+            <td>{% formfield player.response_60 %}</td>
+            <td> 16€ (60%) et 0.5€ (40%)</td>
+        </tr>
+        <tr>
+            <td> 8.5€ (70%) et 6.8€ (30%)</td>
+            <td>{% formfield player.response_70 %}</td>
+            <td> 16€ (70%) et 0.5€ (30%)</td>
+        </tr>
+        <tr>
+            <td> 8.5€ (80%) et 6.8€ (20%)</td>
+            <td>{% formfield player.response_80 %}</td>
+            <td> 16€ (80%) et 0.5€ (20%)</td>
+        </tr>
+        <tr>
+            <td> 8.5€ (90%) et 6.8€ (10%)</td>
+            <td>{% formfield player.response_90 %}</td>
+            <td> 16€ (90%) et 0.5€ (10%)</td>
+        </tr>
+        <tr>
+            <td> 8.5€ (100%) et 6.8€ (0%)</td>
+            <td>{% formfield player.response_100 %}</td>
+            <td> 16€ (100%) et 0.5€ (0%)</td>
+        </tr>
+    </table>
+
+</div>
+
+     <button class="btn btn-primary btn-large">
+        Suivant
+    </button>
+
+{% endblock %}

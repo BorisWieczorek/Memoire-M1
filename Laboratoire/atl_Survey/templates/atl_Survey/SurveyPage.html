@@ -1,0 +1,31 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Veuillez remplir le questionnaire ci-dessous. Ce questionnaire est totalement anonyme, nous vous remercions donc
+        d'y répondre sincèrement. Vous ne pourrez valider ce questionnaire que lorque vous aurez répondu à l'ensemble
+        des questions.
+    </p>
+
+    <p>
+        {% formfield player.sex %}
+        {% formfield player.sisters_brothers %}
+        {% formfield player.student %}
+        {% formfield player.field_of_studies %}
+        {% formfield player.level_of_study %}
+        {% formfield player.couple %}
+        {% formfield player.previous_participation %}
+        {% formfield player.risk_aversion with label="Comment vous voyez-vous ? Êtes-vous généralement une personne qui prend des risques ou essayez-vous de les éviter ? <br/> Veuillez cocher une case sur l’échelle ci-dessous, où 0 signifie “peur du risque” et 10 signifie “prêt à prendre des risques”." %}
+    </p>
+
+     <button class="btn btn-primary btn-large">
+        Suivant
+    </button>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Partie 1
+{% endblock %}
+
+{% block content %}
+ <font size="5">Phase 2</font>
+<br>
+<br>
+
+    <p>
+        Dans la phase suivante, vous devez choisir pour chaque ligne entre deux options (option A et option B).<br>
+        Ces deux options vous proposent un revenu pour vous-même et pour un autre joueur (le ‘receveur’).
+        Par exemple, dans la première ligne, vous devez choisir entre 3 ECU pour vous et 3 ECU pour l’autre joueur (option A)
+        ou 10 ECU pour vous et 0 ECU pour l’autre joueur. <br>
+        À la fin de l'expérience, une ligne sera tirée au hasard par l’ordinateur qui appliquera votre choix.
+        Le résultat vous sera communiqué à la toute fin de l’expérience. <br>
+        Un autre joueur dans la salle sera choisi aléatoirement pour être le joueur à qui s’applique votre choix (le ‘receveur’).<br>
+        Vous serez également le ‘receveur’ d’un autre joueur.
+    </p>
+
+<div class="form-group required">
+    <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+        <tr>
+            <th colspan = 6 class="text-center">Prenez vos décisions</th>
+        </tr>
+        <tr>
+            <th class="text-center">Option 1</th><th class="text-center">Decision</th><th class="text-center">Option 2</th>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_0 %}</td>
+            <td>10 pour moi, 0 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_1 %}</td>
+            <td>9 pour moi, 1 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_2 %}</td>
+            <td>8 pour moi, 2 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_3 %}</td>
+            <td>7 pour moi, 3 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_4 %}</td>
+            <td>6 pour moi, 4 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_5 %}</td>
+            <td>5 pour moi, 5 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_6%}</td>
+            <td>4 pour moi, 6 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_7 %}</td>
+            <td>3 pour moi, 7 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_8 %}</td>
+            <td>2 pour moi, 8 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_9 %}</td>
+            <td>1 pour moi, 9 pour l'autre</td>
+        </tr>
+        <tr>
+            <td>3 pour moi, 3 pour l'autre</td>
+            <td>{% formfield player.response_Inequity_10 %}</td>
+            <td>0 pour moi, 10 pour l'autre</td>
+        </tr>
+    </table>
+
+</div>
+
+    <div>
+        <button class="btn btn-primary btn-large">Suivant</button>
+    </div>
+{% endblock %}

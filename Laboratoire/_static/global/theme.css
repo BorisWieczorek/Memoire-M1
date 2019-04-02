@@ -1,0 +1,5 @@
+.instructions {
+    margin-bottom: 20px;
+}
+.urnA{background-image:url(urne.jpg); background-repeat: no-repeat; float: left; width : 400px; height: 250px; background-position : 50% 65%; position : absolute;}
+.urnB{background-image:url(urne.jpg); background-repeat: no-repeat; margin-left:45%; width : 400px; height: 250px; background-position : 65% 40%; position relative;}
